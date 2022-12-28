@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -18,6 +19,9 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="Search for campaigns"
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
           className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none"
         />
 
