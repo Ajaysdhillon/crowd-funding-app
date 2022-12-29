@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { DisplayCampaigns } from "./DisplayCampaigns";
 import { useStateContext } from "../context";
 import { CustomButton } from "./";
 import { logo, menu, search, thirdweb } from "../assets";
@@ -24,6 +24,15 @@ const Navbar = () => {
           }}
           className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none"
         />
+        {DisplayCampaigns.filter((val) => {
+          if (searchTerm == "") {
+            return val;
+          } else if (
+            val.title.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            return val;
+          }
+        })}
 
         <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
           <img
